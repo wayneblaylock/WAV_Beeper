@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "wav_beeper/1.0.0": {
+        "runtime": {
+          "wav_beeper.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "wav_beeper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
