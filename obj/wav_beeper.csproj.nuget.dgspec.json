@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj": {}
+    "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj": {
+    "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj",
+        "projectUniqueName": "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj",
         "projectName": "wav_beeper",
-        "projectPath": "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj",
+        "projectPath": "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj",
         "packagesPath": "C:\\Users\\wayne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wayne\\code\\wav_beeper\\obj\\",
+        "outputPath": "C:\\Users\\wayne\\code\\WAV_Beeper\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wayne\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "WavFile": {
+              "target": "Package",
+              "version": "[0.10.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -13,3 +13,5 @@ C:\Users\wayne\code\wav_beeper\obj\Debug\net6.0\refint\wav_beeper.dll
 C:\Users\wayne\code\wav_beeper\obj\Debug\net6.0\wav_beeper.pdb
 C:\Users\wayne\code\wav_beeper\obj\Debug\net6.0\wav_beeper.genruntimeconfig.cache
 C:\Users\wayne\code\wav_beeper\obj\Debug\net6.0\ref\wav_beeper.dll
+C:\Users\wayne\code\WAV_Beeper\bin\Debug\net6.0\WavFile.dll
+C:\Users\wayne\code\WAV_Beeper\obj\Debug\net6.0\wav_beeper.csproj.CopyComplete

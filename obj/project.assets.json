@@ -1,11 +1,47 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "WavFile/0.10.7": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/WavFile.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/WavFile.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "WavFile/0.10.7": {
+      "sha512": "e23dyz1gThx/FS75kmPXNF9fKleXxEZ+0lqAXg85wykZI2iHktQOxvNeIt2OHDBvgmjOBELclzzQSOY4Ig1WQQ==",
+      "type": "package",
+      "path": "wavfile/0.10.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/WavFile.dll",
+        "lib/net461/WavFile.xml",
+        "lib/net5.0/WavFile.dll",
+        "lib/net5.0/WavFile.xml",
+        "lib/netstandard2.0/WavFile.dll",
+        "lib/netstandard2.0/WavFile.xml",
+        "lib/netstandard2.1/WavFile.dll",
+        "lib/netstandard2.1/WavFile.xml",
+        "wavfile.0.10.7.nupkg.sha512",
+        "wavfile.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "WavFile >= 0.10.7"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\wayne\\.nuget\\packages\\": {}
@@ -13,11 +49,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj",
+      "projectUniqueName": "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj",
       "projectName": "wav_beeper",
-      "projectPath": "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj",
+      "projectPath": "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj",
       "packagesPath": "C:\\Users\\wayne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wayne\\code\\wav_beeper\\obj\\",
+      "outputPath": "C:\\Users\\wayne\\code\\WAV_Beeper\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wayne\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +81,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "WavFile": {
+            "target": "Package",
+            "version": "[0.10.7, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -61,7 +103,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -7,8 +7,19 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "wav_beeper/1.0.0": {
+        "dependencies": {
+          "WavFile": "0.10.7"
+        },
         "runtime": {
           "wav_beeper.dll": {}
+        }
+      },
+      "WavFile/0.10.7": {
+        "runtime": {
+          "lib/net5.0/WavFile.dll": {
+            "assemblyVersion": "0.10.7.0",
+            "fileVersion": "0.10.7.0"
+          }
         }
       }
     }
@@ -18,6 +29,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "WavFile/0.10.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e23dyz1gThx/FS75kmPXNF9fKleXxEZ+0lqAXg85wykZI2iHktQOxvNeIt2OHDBvgmjOBELclzzQSOY4Ig1WQQ==",
+      "path": "wavfile/0.10.7",
+      "hashPath": "wavfile.0.10.7.nupkg.sha512"
     }
   }
 }
