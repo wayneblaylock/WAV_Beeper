@@ -1,26 +1,50 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 ///WAVE file documentation at http://soundfile.sapp.org/doc/WaveFormat/
 
 byte[] fileBytes = File.ReadAllBytes("test_song.wav");
 ///var bits = new BitArray(fileBytes);
 
-///Verify if the file is a WAVE file
-int W = fileBytes[8];
-int A = fileBytes[9];
-int V = fileBytes[10];
-int E = fileBytes[11];
-if (W == 87 && A == 65 && V == 86 && E == 69){
-    Console.WriteLine("This is a .wav file, the program will continue.");
-}
-else{
-    Console.WriteLine("This is not a .wav file, the program will not work. Please try agin with a .wav file.");
+for(int i = 0; i <= 45; i++){
+Console.WriteLine($"{i}:  {fileBytes[i],2:x}");
 }
 
-///parsed meta data
-int sub_chunk1_size = fileBytes[16] + fileBytes[17] + fileBytes[18] + fileBytes[19];
-int num_of_channels = fileBytes[22] + fileBytes[23];
 
-for(int i = 0; i < 25; i++){
-Console.WriteLine(fileBytes[i]);
+int bytesValue(byte[] bytes, int offset, int length){
+    if (length == 0)return 0;
+
+    int total = 0;
+    int multiplier = 1;
+    for (int i = 0; i < length; i++){
+        total += bytes[offset + i]*multiplier;
+        multiplier *=16*16;
+    }
+    return total;
+}
+
+Console.WriteLine($"Length of Array: {fileBytes.Length}");
+Console.WriteLine($"Audio Format: {bytesValue(fileBytes, 20, 2)}");
+Console.WriteLine($"Number of Channels: {bytesValue(fileBytes, 22, 2)}");
+Console.WriteLine($"Sample Rate: {bytesValue(fileBytes, 24, 4)}");
+Console.WriteLine($"Bits per Sample: {bytesValue(fileBytes, 34, 2)}");
+
+
+
+Debug.Assert(bytesValue(new byte[]{3, 7, 8, 2}, 0, 0)==0);
+
+Debug.Assert(bytesValue(new byte[]{3, 7, 8, 2}, 0, 1)==3);
+
+Debug.Assert(bytesValue(new byte[]{3, 7, 8, 2}, 2, 1)==8);
+
+Debug.Assert(bytesValue(new byte[]{36, 8, 0, 0}, 0, 4)==2084);
+
+int dataToHz(int position){
+    
+    return 0;
+}
+
+
+for (int i = 44; i < fileBytes.Length; i += 350000){
+    Console.WriteLine($"{fileBytes[i],3} {fileBytes[i+1],3}");
 }
