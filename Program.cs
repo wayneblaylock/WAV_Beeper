@@ -33,14 +33,26 @@ int Sample_Rate = bytesValue(fileBytes, 24, 4);
 Console.WriteLine($"Bits per Sample: {bytesValue(fileBytes, 34, 2)}");
 int Bits_Per_Sample = bytesValue(fileBytes, 34, 2);
 
+int samples_to_average = Sample_Rate;
+int increment = Channels;
+if (Bits_Per_Sample == 16) increment*=2;
 
-//defines a functions that takes the starting position of your bytes, and outputs a usable Hz value
+//defines functions that take the starting position of your bytes, and outputs a usable Hz value
 int dataToHz_16(int position){
-    byte b1 = fileBytes[position];
-    byte b2 = fileBytes[position+1];
-    var raw_num = BitConverter.ToInt16(new byte[] { b1, b2 }, 0);
-    double Hz_value = (0.01* Math.Pow((2), (0.00063876*raw_num)))+37;
-    return (int)Hz_value;
+    // double Hz_value = (0.01* Math.Pow((2), (0.00063876*raw_num)))+37;
+    int Hz = 0;
+    bool past_sign = true;
+    bool current_sign;
+    for (int i = position; i < position + samples_to_average * increment; i += increment){
+        byte b1 = fileBytes[i];
+        byte b2 = fileBytes[i+1];
+        var raw_num = BitConverter.ToInt16(new byte[] { b1, b2 }, 0);
+        if (raw_num <= 0)current_sign = true;
+        else current_sign = false;
+        if (past_sign == true && current_sign == false)Hz ++;
+        past_sign = current_sign;
+    }
+    return Hz;
 }
 int dataToHz_8(int position){
     byte b1 = fileBytes[position];
@@ -49,19 +61,17 @@ int dataToHz_8(int position){
 }
 
 //assemble a list of the samples we want to play, stored as a Hz value
+Console.WriteLine("Processing the file...");
 List<int> Frequencies = new List<int>();
-int Array_Parse_Factor = (Sample_Rate/1000)*Channels;
-if (Bits_Per_Sample == 16) Array_Parse_Factor *= 2;
-
 if (Bits_Per_Sample == 16){
-for (int i = 44; i < fileBytes.Length; i += Array_Parse_Factor){
+for (int i = 44; i < fileBytes.Length; i += increment){
     Frequencies.Add(dataToHz_16(i));
     // Console.WriteLine(dataToHz_16(i));
 }}
 else{
-for (int i = 44; i < fileBytes.Length; i += Array_Parse_Factor){
+for (int i = 44; i < fileBytes.Length; i += increment){
     Frequencies.Add(dataToHz_8(1));
 }}
 int Frequencies_Length = Frequencies.Count;
 Console.WriteLine("Your Song is playing...");
-for (int i = 0; i <= Frequencies_Length; i++) Console.Beep(Frequencies[i], 500);
+for (int i = 0; i <= Frequencies_Length; i++) Console.Beep(Frequencies[i], 600);
