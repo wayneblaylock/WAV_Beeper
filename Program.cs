@@ -3,7 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 ///WAVE file documentation at http://soundfile.sapp.org/doc/WaveFormat/
 
-byte[] fileBytes = File.ReadAllBytes("test_song.wav");
+byte[] fileBytes = File.ReadAllBytes("star_wars.wav");
 
 int bytesValue(byte[] bytes, int offset, int length){
     if (length == 0)return 0;
@@ -45,7 +45,7 @@ int dataToHz_16(int position){
     bool current_sign;
     for (int i = position; i < position + samples_to_average * increment; i += increment){
         byte b1 = fileBytes[i];
-        byte b2 = fileBytes[i+1];
+        byte b2 = fileBytes[i-1];
         var raw_num = BitConverter.ToInt16(new byte[] { b1, b2 }, 0);
         if (raw_num <= 0)current_sign = true;
         else current_sign = false;
@@ -64,8 +64,9 @@ int dataToHz_8(int position){
 Console.WriteLine("Processing the file...");
 List<int> Frequencies = new List<int>();
 if (Bits_Per_Sample == 16){
-for (int i = 44; i < fileBytes.Length; i += increment){
-    Frequencies.Add(dataToHz_16(i));
+for (int i = 44; i < fileBytes.Length-(Sample_Rate*Channels); i += (increment*Sample_Rate)){
+    if(dataToHz_16(i)<=32767 && dataToHz_16(i)>=37)Frequencies.Add(dataToHz_16(i));
+    else Frequencies.Add(37);
     // Console.WriteLine(dataToHz_16(i));
 }}
 else{
@@ -73,5 +74,6 @@ for (int i = 44; i < fileBytes.Length; i += increment){
     Frequencies.Add(dataToHz_8(1));
 }}
 int Frequencies_Length = Frequencies.Count;
+Console.WriteLine($"Length of Song: {Frequencies_Length} Seconds");
 Console.WriteLine("Your Song is playing...");
-for (int i = 0; i <= Frequencies_Length; i++) Console.Beep(Frequencies[i], 600);
+for (int i = 0; i < Frequencies_Length; i++) Console.Beep(Frequencies[i], 700);

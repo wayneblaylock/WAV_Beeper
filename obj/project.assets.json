@@ -49,11 +49,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj",
+      "projectUniqueName": "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj",
       "projectName": "wav_beeper",
-      "projectPath": "C:\\Users\\wayne\\code\\WAV_Beeper\\wav_beeper.csproj",
+      "projectPath": "C:\\Users\\wayne\\code\\wav_beeper\\wav_beeper.csproj",
       "packagesPath": "C:\\Users\\wayne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wayne\\code\\WAV_Beeper\\obj\\",
+      "outputPath": "C:\\Users\\wayne\\code\\wav_beeper\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wayne\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -103,7 +103,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
